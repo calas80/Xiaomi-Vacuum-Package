@@ -20,9 +20,9 @@ Visto che ho una bambina piccola, non è sempre un bene se le pulizie automatich
 Il packages ha dei sensori interattivi per i filtri e i pezzi diricambio. Manderà un avviso quando stanno per esaurirsi.
 - Serbatoio: Alla fine di ogni ciclo di puliza, il serbatoio verrà considerato pieno e verrà inviata una notifica per ricordarsi di svuotarlo. Per evitare danni, nessuna operazione di pulizia automatica avviene se il serbatoio risulta pieno.
 Ci sono tre modi di svuotare il serbatorio:
-  1 - Cliccare sull'immagine sbuota il serbatio (che appare solo quando il serbatoio è pieno)
-  2 - Ho previsto una automazione grazie all'utilizzo di un sesonre di vibrazione Xiaomi che ho posizionato sul coperchio del robottino; quando il coperchio viene aperto per più di 8 secondi, il serbatoio viene considerato svuotato.
-  3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
+  - 1 - Cliccare sull'immagine sbuota il serbatio (che appare solo quando il serbatoio è pieno)
+  - 2 - Ho previsto una automazione grazie all'utilizzo di un sesonre di vibrazione Xiaomi che ho posizionato sul coperchio del robottino; quando il coperchio viene aperto per più di 8 secondi, il serbatoio viene considerato svuotato.
+  - 3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
 <img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Anteprima%202.PNG" alt="Anteprima">
 
 
@@ -30,10 +30,10 @@ Ci sono tre modi di svuotare il serbatorio:
 Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulize automatiche senza dover modificare la programmazione settimanale.
 
 # Funzioni speciali
-il robottino torna alla base da solo in caso di errore o perdinta della mappa
+- Il robottino torna alla base da solo in caso di errore o perdinta della mappa.
+- Un ora prima dell'inzio delle pulizie automatiche, se il serbatoio è ancora pieno, parte un promemoria per ricordare di svuotarlo. Se arrivata l'ora delle pulize il serbatoio è ancora pieno, le pulizie non avvengo e si viene avvisati.
+- Quando parte la puliza automatica, si viene avvisati tramite notifica e tramite annuncio con alexa.
 
 # Impostazioni
 Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercarle nel testo per trovare cosa dovete sotituire.
 In linea di massima dovrete correggere i settaggi del vostro Vacuum e i notify.XXXX.
-
-
