@@ -365,19 +365,22 @@
             service: script.pulizia_bagno_gatti
 
 
-    - type: picture-entity
-      entity: input_boolean.vacuum_svuota_serbatoio
-      show_state: false
-      show_name: false
-      tap_action:
-        action: call-service
-        service: input_boolean.turn_off
-        service_data:
-          entity_id: input_boolean.vacuum_svuota_serbatoio
-#        action: toggle
-      state_image:
-        "on": /local/vacuum_pieno1.png
-        "off": /local/vacuum_pronto.png
+    - type: horizontal-stack
+      panel: true
+      cards:
+        - type: picture-entity
+          entity: input_boolean.vacuum_svuota_serbatoio
+          show_state: false
+          show_name: false
+          tap_action:
+            action: call-service
+            service: input_boolean.turn_off
+            service_data:
+              entity_id: input_boolean.vacuum_svuota_serbatoio
+        #        action: toggle
+          state_image:
+            "on": /local/vacuum_pieno1.png
+            "off": /local/vacuum_pronto.png
 
 ################################################################################
 #################################################### CALENDARIO ################
@@ -411,7 +414,6 @@
           styles:
             card:
               - font-size: 15px
-
 
     - type: custom:vertical-stack-in-card
       cards:
