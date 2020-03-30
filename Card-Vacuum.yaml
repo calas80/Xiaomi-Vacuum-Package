@@ -4,11 +4,6 @@
 
 - type: custom:vertical-stack-in-card
   cards:
-
-    - type: "custom:button-entity-row"
-      buttons:
-        - input_boolean.pulizia_eseguita
-
     - type: custom:fold-entity-row # RICHIESTA PULIZIA
       head: input_boolean.richiesta_pulizia
       items:
