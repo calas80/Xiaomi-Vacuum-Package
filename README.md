@@ -27,13 +27,13 @@ Ci sono tre modi di svuotare il serbatorio:
 
 
 # Calendario
-Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulize automatiche senza dover modificare la programmazione settimanale.
+Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulizie automatiche senza dover modificare la programmazione settimanale.
 
 # Funzioni speciali
-- Il robottino torna alla base da solo in caso di errore o perdinta della mappa.
-- Un ora prima dell'inzio delle pulizie automatiche, se il serbatoio è ancora pieno, parte un promemoria per ricordare di svuotarlo. Se arrivata l'ora delle pulize il serbatoio è ancora pieno, le pulizie non avvengo e si viene avvisati.
-- Quando parte la puliza automatica, si viene avvisati tramite notifica e tramite annuncio con alexa.
+- Il robottino torna alla base da solo in caso di errore o perdita della mappa.
+- Un ora prima dell'inizio delle pulizie automatiche, se il serbatoio è ancora pieno, parte un promemoria per ricordare di svuotarlo. Se arrivata l'ora delle pulizie il serbatoio è ancora pieno, le pulizie non avvengo e si viene avvisati.
+- Quando parte la pulizia automatica, si viene avvisati tramite notifica e tramite annuncio con alexa.
 
 # Impostazioni
-Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercarle nel testo per trovare cosa dovete sotituire.
+Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercarle nel testo per trovare cosa dovete sostituire.
 In linea di massima dovrete correggere i settaggi del vostro Vacuum e i notify.XXXX.
