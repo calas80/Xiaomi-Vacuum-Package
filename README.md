@@ -23,7 +23,7 @@ Ci sono tre modi di svuotare il serbatorio:
   1 - Cliccare sull'immagine sbuota il serbatio (che appare solo quando il serbatoio è pieno)
   2 - Ho previsto una automazione grazie all'utilizzo di un sesonre di vibrazione Xiaomi che ho posizionato sul coperchio del robottino; quando il coperchio viene aperto per più di 8 secondi, il serbatoio viene considerato svuotato.
   3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
-<img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Atemprima2.PNG" alt="Anteprima">
+<img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Atemprima 2.PNG" alt="Anteprima">
 # Calendario
 Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulize automatiche senza dover modificare la programmazione settimanale.
 
