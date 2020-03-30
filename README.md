@@ -21,7 +21,7 @@ Ci sono tre modi di svuotare il serbatorio:
   3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
 
 # Calendario
-Ogni fiorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulize automatiche senza dover modificare la programmazione settimanale.
+Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulize automatiche senza dover modificare la programmazione settimanale.
 
 # Funzioni speciali
 il robottino torna alla base da solo in caso di errore o perdinta della mappa
