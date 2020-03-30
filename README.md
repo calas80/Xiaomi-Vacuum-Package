@@ -14,6 +14,11 @@ Vi spiego le cose "meno consuete" che rischiate di non capire:
 Visto che ho una bambina piccola, non è sempre un bene se le pulizie automatiche programmate partano senza chiedere il permesso, perchè potrebbero svegliare la piccola che dorme. Ho implemetato questa funzinoe, che se attiva, prima di partire con le pulizie chede conferma tramite una action. E' possibile programmare 2 richeste distinte a due orari diversi per ogni giorno della settimana. Se le richieste sono attive e non viene data risposta, le pulize automatiche non avvegono. Se il serbatoio del vacuum risulta pieno o se nessuno è in casa, la richiesta non viene fatta.
 - Consumabili:
 Il packages ha dei sensori interattivi per i filtri e i pezzi diricambio. Manderà un avviso quando stanno per esaurirsi.
+- Serbatoio: Alla fine di ogni ciclo di puliza, il serbatoio verrà considerato pieno e verrà inviata una notifica per ricordarsi di svuotarlo. Per evitare danni, nessuna operazione di pulizia automatica avviene se il serbatoio risulta pieno.
+Ci sono tre modi di svuotare il serbatorio:
+  1 - Cliccare sull'immagine sbuota il serbatio (che appare solo quando il serbatoio è pieno)
+  2 - Ho previsto una automazione grazie all'utilizzo di un sesonre di vibrazione Xiaomi che ho posizionato sul coperchio del robottino; quando il coperchio viene aperto per più di 8 secondi, il serbatoio viene considerato svuotato.
+  3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
   
 
 # Impostazioni
