@@ -2,7 +2,7 @@
 <img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Atemprima.PNG" alt="Anteprima">
 
 
-
+# Prerequisiti
 Custom Component necessari:
   - vertical-stack-in-card
   - fold-entity-row
