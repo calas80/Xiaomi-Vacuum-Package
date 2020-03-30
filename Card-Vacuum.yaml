@@ -1,0 +1,556 @@
+################################################################################
+#################################################### VACUUM ####################
+################################################################################
+
+- type: custom:vertical-stack-in-card
+  cards:
+
+    - type: "custom:button-entity-row"
+      buttons:
+        - input_boolean.pulizia_eseguita
+
+    - type: custom:fold-entity-row # RICHIESTA PULIZIA
+      head: input_boolean.richiesta_pulizia
+      items:
+        - type: custom:fold-entity-row # Lunedi
+          head:
+            type: section
+            label: Lunedi
+          open: false
+          entities:
+              - entity: input_boolean.richiesta_pulizia_lunedi
+                type: custom:multiple-entity-row
+                name: Richiesta 1
+                toggle: true
+                entities:
+                  - entity: input_datetime.orario_richiesta_pulizia_lunedi
+                    name: false
+              - entity: input_boolean.richiesta_pulizia_lunedi_2
+                type: custom:multiple-entity-row
+                name: Richiesta 2
+                toggle: true
+                entities:
+                  - entity: input_datetime.orario_richiesta_pulizia_lunedi_2
+                    name: false
+
+        - type: custom:fold-entity-row # Martedi
+          head:
+            type: section
+            label: Martedi
+          open: false
+          entities:
+            - entity: input_boolean.richiesta_pulizia_martedi
+              type: custom:multiple-entity-row
+              name: Richiesta 1
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_martedi
+                  name: false
+            - entity: input_boolean.richiesta_pulizia_martedi_2
+              type: custom:multiple-entity-row
+              name: Richiesta 2
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_martedi_2
+                  name: false
+
+        - type: custom:fold-entity-row # Giovedi
+          head:
+            type: section
+            label: Mercoledi
+          open: false
+          entities:
+            - entity: input_boolean.richiesta_pulizia_mercoledi
+              type: custom:multiple-entity-row
+              name: Richiesta 1
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_mercoledi
+                  name: false
+            - entity: input_boolean.richiesta_pulizia_mercoledi_2
+              type: custom:multiple-entity-row
+              name: Richiesta 2
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_mercoledi_2
+                  name: false
+
+        - type: custom:fold-entity-row # Mercoledi
+          head:
+            type: section
+            label: Giovedi
+          open: false
+          entities:
+            - entity: input_boolean.richiesta_pulizia_giovedi
+              type: custom:multiple-entity-row
+              name: Richiesta 1
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_giovedi
+                  name: false
+            - entity: input_boolean.richiesta_pulizia_giovedi_2
+              type: custom:multiple-entity-row
+              name: Richiesta 2
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_giovedi_2
+                  name: false
+
+        - type: custom:fold-entity-row # Venerdi
+          head:
+            type: section
+            label: Venerdi
+          open: false
+          entities:
+            - entity: input_boolean.richiesta_pulizia_venerdi
+              type: custom:multiple-entity-row
+              name: Richiesta 1
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_venerdi
+                  name: false
+            - entity: input_boolean.richiesta_pulizia_venerdi_2
+              type: custom:multiple-entity-row
+              name: Richiesta 2
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_venerdi_2
+                  name: false
+
+
+        - type: custom:fold-entity-row # Sabato
+          head:
+            type: section
+            label: Sabato
+          open: false
+          entities:
+            - entity: input_boolean.richiesta_pulizia_sabato
+              type: custom:multiple-entity-row
+              name: Richiesta 1
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_sabato
+                  name: false
+            - entity: input_boolean.richiesta_pulizia_sabato_2
+              type: custom:multiple-entity-row
+              name: Richiesta 2
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_sabato_2
+                  name: false
+
+        - type: custom:fold-entity-row # Domenica
+          head:
+            type: section
+            label: Domenica
+          open: false
+          entities:
+            - entity: input_boolean.richiesta_pulizia_domenica
+              type: custom:multiple-entity-row
+              name: Richiesta 1
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_domenica
+                  name: false
+            - entity: input_boolean.richiesta_pulizia_domenica_2
+              type: custom:multiple-entity-row
+              name: Richiesta 2
+              toggle: true
+              entities:
+                - entity: input_datetime.orario_richiesta_pulizia_domenica_2
+                  name: false
+
+        - type: section
+
+
+    - type: "custom:button-card"
+      color_type: blank-card
+      styles:
+        card:
+          - height: 10px
+
+    - type: vertical-stack
+      panel: true
+      cards:
+        - type: picture-elements
+          image: /local/vacuum0.png
+          elements:
+            - type: state-label # STATO
+              tap_action: more-info
+              entity: vacuum.xiaomi_vacuum_cleaner
+              style:
+               top: 90%
+               right: 38%
+               color: rgb(255, 255, 255)
+               transform: translate(0%,-50%)
+               font-family: Trebuchet MS
+               font-size: 150%
+               font-weight: bold
+               border-color: rgb(34, 154, 210)
+               border-radius: 8px
+               background-color: '#e68a00'
+
+            - type: state-label # Spazzolina
+              entity: sensor.vacuum_spazzolina
+              style:
+                top: 15%
+                left: 13%
+                color: "#11AB7D"
+                font-size: 16px
+
+            - type: state-label # Spazzola
+              entity: sensor.vacuum_spazzola_centrale
+              style:
+                top: 45%
+                left: 13%
+                color: "#11AB7D"
+                font-size: 16px
+
+            - type: state-label # Filtro
+              entity: sensor.vacuum_filtro
+              style:
+                top: 75%
+                left: 13%
+                color: "#11AB7D"
+                font-size: 16px
+
+            - type: state-label # Sensori
+              entity: sensor.vacuum_sensori
+              style:
+                top: 21%
+                left: 87%
+                color: "#11AB7D"
+                font-size: 20px
+
+            - type: state-label # Batteria
+              entity: sensor.vacuum_stato_batteria
+              style:
+                top: 60%
+                left: 90%
+                color: "#ffffff"
+                font-size: 13px
+
+            - type: state-icon # Icona Batteria
+              entity: sensor.vacuum_stato
+              style:
+               top: 58%
+               right: 8%
+               --iron-icon-fill-color: "#e68a00"
+               --iron-icon-height: 35px
+               --iron-icon-width: 35px
+
+            - type: state-label #Area ultima pulizia
+              entity: sensor.vacuum_area_pulita
+              prefix: "Area:"
+              style:
+                top: 93%
+                left: 77%
+    #            color: '#84a6ba'
+                transform: translate(0%,-50%)
+                pointer-events: none
+                font-family: Trebuchet MS
+                font-size: 100%
+                font-weight: bold
+
+            - type: state-label # Tempo ultima pulizia
+              entity: sensor.vacuum_tempo_pulizia
+              prefix: "Tempo:"
+              style:
+                top: 93%
+                left: 3%
+    #            color: '#84a6ba'
+                transform: translate(0%,-50%)
+                pointer-events: none
+                font-family: Trebuchet MS
+                font-size: 100%
+                font-weight: bold
+
+################################################################################
+#################################################### TASTI TUNZIONE ############
+################################################################################
+    - type: custom:vertical-stack-in-card
+      cards:
+        - type: "custom:button-card"
+          color_type: blank-card
+          styles:
+            card:
+              - height: 8px
+
+    - type: horizontal-stack
+      panel: true
+      cards:
+        - type: custom:button-card # START
+          icon: mdi:play
+          show_name: false
+          color_type: icon
+          tap_action:
+            action: call-service
+            service: vacuum.start
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          entity: vacuum.xiaomi_vacuum_cleaner
+#          style:
+#            .: |
+#              ha-card {
+#                --paper-item-icon-color: {% if is_state('sensor.vacuum_stato', 'Cleaning') %} green {% else %}red {% endif %};
+#              }
+
+        - type: "custom:button-card" # STOP
+          icon: mdi:stop
+          show_name: false
+          tap_action:
+            action: call-service
+            service: vacuum.stop
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          entity: vacuum.xiaomi_vacuum_cleaner
+          style:
+            .: |
+              ha-card {
+                --paper-item-icon-color: white
+              }
+
+        - type: "custom:button-card" # HOME RETURN
+          icon: mdi:home
+          show_name: false
+          tap_action:
+            action: call-service
+            service: vacuum.return_to_base
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          entity: vacuum.xiaomi_vacuum_cleaner
+          style:
+            .: |
+              ha-card {
+                --paper-item-icon-color: white
+              }
+
+        - type: "custom:button-card" # SPOT
+          icon: mdi:crosshairs
+          show_name: false
+          tap_action:
+            action: call-service
+            service: vacuum.clean_spot
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          entity: vacuum.xiaomi_vacuum_cleaner
+          style:
+            .: |
+              ha-card {
+                --paper-item-icon-color: white
+              }
+
+        - type: "custom:button-card" # LOCATE
+          icon: mdi:bell-ring
+          show_name: false
+          tap_action:
+            action: call-service
+            service: vacuum.locate
+            service_data:
+              entity_id: vacuum.xiaomi_vacuum_cleaner
+          entity: vacuum.xiaomi_vacuum_cleaner
+          style:
+            .: |
+              ha-card {
+                --paper-item-icon-color: white
+              }
+
+        - type: "custom:button-card" # Bagno Gatti
+          icon: mdi:shower
+          show_name: false
+          color_type: icon
+          color: '#ffffff'
+          tap_action:
+            action: call-service
+            service: script.pulizia_bagno_gatti
+
+
+    - type: picture-entity
+      entity: input_boolean.vacuum_svuota_serbatoio
+      show_state: false
+      show_name: false
+      tap_action:
+        action: call-service
+        service: input_boolean.turn_off
+        service_data:
+          entity_id: input_boolean.vacuum_svuota_serbatoio
+#        action: toggle
+      state_image:
+        "on": /local/vacuum_pieno1.png
+        "off": /local/vacuum_pronto.png
+
+################################################################################
+#################################################### CALENDARIO ################
+################################################################################
+
+- type: custom:vertical-stack-in-card
+  panel: true
+  cards:
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          entity: input_boolean.pulizia_giornaliera_robot
+          show_icon: true
+          show_state: false
+          name: Pulizia Giornaliera
+          color: auto
+          size: 20%
+          color_type: icon
+          styles:
+            card:
+              - font-size: 15px
+
+        - type: "custom:button-card"
+          entity: input_boolean.pulizia_automatica_bagno
+          show_icon: true
+          show_state: false
+          name: Pulizia Automatica Bagno
+          color: auto
+          size: 20%
+          color_type: icon
+          styles:
+            card:
+              - font-size: 15px
+
+
+    - type: custom:vertical-stack-in-card
+      cards:
+        - type: horizontal-stack # pulizia_lunedi
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_lunedi
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Lunedi
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_lunedi
+                  name: Orario
+
+        - type: horizontal-stack # pulizia_martedi
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_martedi
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Martedi
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_martedi
+                  name: Orario
+
+        - type: horizontal-stack # pulizia_mercoledi
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_mercoledi
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Mercoledi
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_mercoledi
+                  name: Orario
+
+        - type: horizontal-stack # pulizia_giovedi
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_giovedi
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Giovedi
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_giovedi
+                  name: Orario
+
+        - type: horizontal-stack # pulizia_venerdi
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_venerdi
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Venerdi
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_venerdi
+                  name: Orario
+
+        - type: horizontal-stack # pulizia_sabato
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_sabato
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Sabato
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_sabato
+                  name: Orario
+
+        - type: horizontal-stack # pulizia_domenica
+          cards:
+            - type: "custom:button-card"
+              entity: input_boolean.pulizia_domenica
+              show_icon: true
+              show_state: false
+              layout: icon_name
+              name: Domenica
+              color: auto
+              icon: mdi:checkbox-marked
+              color_type: icon
+              styles:
+                card:
+                  - height: 90px
+                  - width: 150px
+            - type: entities
+              entities:
+                - entity: input_datetime.orario_pulizia_domenica
+                  name: Orario
