@@ -1,6 +1,7 @@
 # Xiaomi Vacuum Packeges
+<img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Atemprima.PNG" alt="Anteprima">
 
-https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Atemprima.PNG
+
 
 Custom Component necessari:
   - vertical-stack-in-card
