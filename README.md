@@ -19,7 +19,12 @@ Ci sono tre modi di svuotare il serbatorio:
   1 - Cliccare sull'immagine sbuota il serbatio (che appare solo quando il serbatoio è pieno)
   2 - Ho previsto una automazione grazie all'utilizzo di un sesonre di vibrazione Xiaomi che ho posizionato sul coperchio del robottino; quando il coperchio viene aperto per più di 8 secondi, il serbatoio viene considerato svuotato.
   3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
-  
+
+# Calendario
+Ogni fiorno è programmabile e attivabile singolarmente. Il tasto in alto "Pulizia Giornaliera" invece, disabilita le pulize automatiche senza dover modificare la programmazione settimanale.
+
+# Funzioni speciali
+il robottino torna alla base da solo in caso di errore o perdinta della mappa
 
 # Impostazioni
 Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercarle nel testo per trovare cosa dovete sotituire.
