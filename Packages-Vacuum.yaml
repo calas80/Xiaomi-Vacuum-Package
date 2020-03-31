@@ -2092,7 +2092,7 @@ automation:
       event_data:
         actionName: NO
     action:
-      - service: notify.ios_simona
+      - service: notify.ios_XXXX
         data:
           message: "Provo dopo"
 
