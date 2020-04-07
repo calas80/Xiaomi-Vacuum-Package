@@ -1259,22 +1259,7 @@ automation:
         data:
           entity_id: input_boolean.vacuum_svuota_serbatoio
 
-####################################################### TEST PULIZIA ZONE ######
-  - alias: Test vacuum zone3
-    initial_state: false
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - service: vacuum.xiaomi_clean_zone
-        data:
-          entity_id: vacuum.xiaomi_vacuum_cleaner
-          repeats: 1
-          zone:
-            - 17500
-            - 15500
-            - 19500
-            - 22500
+
 
 ##################################################### NOTIFICHE ###############
 
