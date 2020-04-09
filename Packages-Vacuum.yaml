@@ -110,7 +110,7 @@ homeassistant:
     avviso_serbatoio_alexa:
       <<: *customize
     pulizia_bagno_gatti:
-        <<: *customize
+      <<: *customize
     script.robot_avvia_pulizie:
       icon: mdi:broom
       <<: *customize
