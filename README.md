@@ -14,7 +14,7 @@ Novità:
 
 # Prerequisiti
 Custom Component necessari:
-  - vertical-stack-in-card
+  - NodeRed (solo se volete la pulizia multistanza)
   - fold-entity-row
   - multiple-entity-row
   - button-card
