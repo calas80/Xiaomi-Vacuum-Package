@@ -6,7 +6,7 @@ homeassistant:
     package.node_anchors:
       customize: &customize
         package: 'Xiaomi Vacuum Package'
-        version: 'v3.5'
+        version: 'v4.0'
         author: 'Calas'
 
       expose: &expose
@@ -18,7 +18,6 @@ homeassistant:
   ## input_boolean Customize
   ################################################
     input_boolean.pulizia_giornaliera_robot:
-      icon: mdi:repeat
       <<: *customize
     input_boolean.pulizia_lunedi:
       icon: mdi:broom
@@ -41,77 +40,75 @@ homeassistant:
     input_boolean.pulizia_domenica:
       icon: mdi:broom
       <<: *customize
-    pulizia_giornaliera_robot:
+    input_boolean.pulizia_se_in_casa:
       <<: *customize
-    pulizia_se_in_casa:
+    input_boolean.vacuum_svuota_serbatoio:
       <<: *customize
-    vacuum_svuota_serbatoio:
+    input_boolean.richiesta_pulizia:
       <<: *customize
-    richiesta_pulizia:
+    input_boolean.richiesta_pulizia_lunedi:
       <<: *customize
-    richiesta_pulizia_lunedi:
+    input_boolean.richiesta_pulizia_martedi:
       <<: *customize
-    richiesta_pulizia_martedi:
+    input_boolean.richiesta_pulizia_mercoledi:
       <<: *customize
-    richiesta_pulizia_mercoledi:
+    input_boolean.richiesta_pulizia_giovedi:
       <<: *customize
-    richiesta_pulizia_giovedi:
+    input_boolean.richiesta_pulizia_venerdi:
       <<: *customize
-    richiesta_pulizia_venerdi:
+    input_boolean.richiesta_pulizia_sabato:
       <<: *customize
-    richiesta_pulizia_sabato:
+    input_boolean.richiesta_pulizia_domenica:
       <<: *customize
-    richiesta_pulizia_domenica:
+    input_boolean.pulizia_eseguita:
       <<: *customize
-    pulizia_eseguita:
+    input_boolean.notifica_richiesta_pulizia:
       <<: *customize
-    notifica_richiesta_pulizia:
+    input_boolean.allert_richiesta_pulizia:
       <<: *customize
-    allert_richiesta_pulizia:
+    input_boolean.richiesta_pulizia_lunedi_2:
       <<: *customize
-    richiesta_pulizia_lunedi_2:
+    input_boolean.richiesta_pulizia_martedi_2:
       <<: *customize
-    richiesta_pulizia_martedi_2:
+    input_boolean.richiesta_pulizia_mercoledi_2:
       <<: *customize
-    richiesta_pulizia_mercoledi_2:
+    input_boolean.richiesta_pulizia_giovedi_2:
       <<: *customize
-    richiesta_pulizia_giovedi_2:
+    input_boolean.richiesta_pulizia_venerdi_2:
       <<: *customize
-    richiesta_pulizia_venerdi_2:
+    input_boolean.richiesta_pulizia_sabato_2:
       <<: *customize
-    richiesta_pulizia_sabato_2:
+    input_boolean.richiesta_pulizia_domenica_2:
       <<: *customize
-    richiesta_pulizia_domenica_2:
+    input_boolean.pulizia_automatica_bagno:
       <<: *customize
-    pulizia_automatica_bagno:
+    input_boolean.annuncio_inizio_pulizie:
       <<: *customize
-    annuncio_inizio_pulizie:
+    input_boolean.annuncio_pulizie:
       <<: *customize
-    annuncio_pulizie:
+    input_boolean.pulizie_alexa:
       <<: *customize
-    pulizie_alexa:
-      <<: *customize
-    vacuum_pulizie_avviate:
+    input_boolean.vacuum_pulizie_avviate:
       <<: *customize
 
   ################################################
   ## Script Customize
   ################################################
-    robot_avvia_pulizie:
+    scritp.robot_avvia_pulizie:
       <<: *customize
-    robot_torna_a_casa:
+    scritp.robot_torna_a_casa:
       <<: *customize
-    vacuum_start:
+    scritp.vacuum_start:
       <<: *customize
-    vacuum_stop:
+    scritp.vacuum_stop:
       <<: *customize
-    vacuum_alexa:
+    scritp.vacuum_alexa:
       <<: *customize
-    avviso_serbatoio_alexa:
+    scritp.avviso_serbatoio_alexa:
       <<: *customize
-    pulizia_bagno_gatti:
+    scritp.pulizia_bagno_gatti:
       <<: *customize
-    script.robot_avvia_pulizie:
+    scritp.script.robot_avvia_pulizie:
       icon: mdi:broom
       <<: *customize
 
@@ -122,20 +119,19 @@ homeassistant:
 #                                   C O R P O                                  #
 #******************************************************************************#
 
-
-
-  ################################################
-  ## Component
-  ################################################
+################################################################################
+##                  Integrazione
+###################################################
 
 vacuum:
   - platform: xiaomi_miio
     host: XXX.XXX.XXX.XXX
-    token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-  ################################################
-  ## Counter
-  ################################################
+
+################################################################################
+##                  Counter
+###################################################
 counter:
   pulizie_giorno:
     name: Pulizie Giono
@@ -144,9 +140,26 @@ counter:
     name: Pulizie Giono
     icon: mdi:calendar-week
 
-  ################################################
-  ## input_datetime
-  ################################################
+################################################################################
+##                  Input Select
+###################################################
+input_select:
+  scegli_stanza_vacuum:
+    name: Pulizie stanze
+    options:
+      - "Bagno"
+      - "Bagno Gatti"
+      - "Camera da letto"
+      - "Cameretta"
+      - "Cucina"
+      - "Corridoio"
+      - "Soggiorno"
+    icon: mdi:target-variant
+
+
+################################################################################
+##                  Input Datetime
+###################################################
 input_datetime:
   orario_pulizia_lunedi:
     name: Orario di pulizia Lunedi
@@ -235,12 +248,13 @@ input_datetime:
     has_date: false
     has_time: true
 
-  ################################################
-  ## input_boolean
-  #################################################
+################################################################################
+##                  Input Boolean
+###################################################
 input_boolean:
   pulizia_giornaliera_robot:
     name: Pulizia giornaliera robot
+    icon: mdi:repeat
   pulizia_se_in_casa:
     name: Attiva puliza SOLO se qualcuno è in casa
   vacuum_svuota_serbatoio:
@@ -328,16 +342,45 @@ input_boolean:
   vacuum_pulizie_avviate:
     name: Pulizie Avviate
 
-  ################################################
-  ## Sensori
-  ################################################
+  stanza_1:
+    name: Stanza 1
+  stanza_2:
+    name: Stanza 2
+  stanza_3:
+    name: Stanza 3
+  stanza_4:
+    name: Stanza 4
+  stanza_5:
+    name: Stanza 5
+  stanza_6:
+    name: Stanza 6
+  stanza_7:
+    name: Stanza 7
+  stanza_8:
+    name: Stanza 8
+################################################################################
+##                  Sensor
+###################################################
 sensor:
+  platform: template
+  sensors:
+    last_alexa:
+      friendly_name: 'Last Alexa'
+      value_template: >-
+        {% if is_state_attr('media_player.echo_show_cucina','last_called', true) %}
+          echo_show_cucina
+        {% elif is_state_attr('media_player.soggiorno','last_called', true) %}
+          soggiorno
+        {% elif is_state_attr('media_player.camera_da_letto','last_called', true) %}
+          camera_da_letto
+        {% else %}
+          none
+        {% endif %}
+
   platform: template
   sensors:
     vacuum_stato:
       friendly_name: Stato robot
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
       icon_template: >
         {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.status  %}
@@ -360,88 +403,97 @@ sensor:
     sensore_serbatorio_vacuum:
       friendly_name: 'Sensore Serbatoio Vacuum'
       value_template: >-
-          {% if states.sensor.coordination_158d0002b615f8.state == 'unknown' %}
+        {% if states.sensor.coordination_XXXXXXXXXXXXXXX.state == 'unknown' %}
             Sconosciuto
-          {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[0] | int > 700 %}
+        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[0] | int > 700 %}
             1
-          {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[0] | int < -700 %}
+        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[0] | int < -700 %}
             2
-          {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[1] | int > 700 %}
+        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[1] | int > 700 %}
             3
-          {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[1] | int < -700 %}
+        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[1] | int < -700 %}
             4
-          {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[2] | int > 900 %}
+        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[2] | int > 900 %}
             5
-          {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[2] | int < -400 %}
+        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[2] | int < -400 %}
             6
-          {% endif %}
+        {% endif %}
+
+    pulizia_multi_stanze:
+      friendly_name: 'seleziona stanze'
+      value_template: >-
+          {% set do_stanza_1 = is_state('input_boolean.stanza_1', 'on') %}
+          {% set do_stanza_2 = is_state('input_boolean.stanza_2', 'on') %}
+          {% set do_stanza_3 = is_state('input_boolean.stanza_3', 'on') %}
+          {% set do_stanza_4 = is_state('input_boolean.stanza_4', 'on') %}
+          {% set do_stanza_5 = is_state('input_boolean.stanza_5', 'on') %}
+          {% set do_stanza_6 = is_state('input_boolean.stanza_6', 'on') %}
+          {% set do_stanza_7 = is_state('input_boolean.stanza_7', 'on') %}
+          {% set do_stanza_8 = is_state('input_boolean.stanza_8', 'on') %}
+          {% set stanza_1 = 16 if do_stanza_1 else '' %}
+          {% set stanza_2 = 17 if do_stanza_2 else '' %}
+          {% set stanza_3 = 18 if do_stanza_3 else '' %}
+          {% set stanza_4 = 19 if do_stanza_4 else '' %}
+          {% set stanza_5 = 20 if do_stanza_5 else '' %}
+          {% set stanza_6 = 21 if do_stanza_6 else '' %}
+          {% set stanza_7 = 22 if do_stanza_7 else '' %}
+          {% set stanza_8 = 24 if do_stanza_8 else '' %}
+
+          [{{ [stanza_1, stanza_2, stanza_3, stanza_4, stanza_5, stanza_6, stanza_7, stanza_8] | select("!=", "") | join(",") }}]
+    stanze:
+      friendly_name: 'seleziona stanze'
+      value_template: >-
+          {% set object = [states.input_boolean.stanza_1, states.input_boolean.stanza_2, states.input_boolean.stanza_3, states.input_boolean.stanza_4, states.input_boolean.stanza_5, states.input_boolean.stanza_6, states.input_boolean.stanza_7, states.input_boolean.stanza_8] %}
+          {{ object | selectattr('state', 'eq', 'on') | list | count >= 1}}
 
     vacuum_fanspeed:
       friendly_name: Fan Speed
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: 'Mode: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.fan_speed }}'
       icon_template: 'mdi:speedometer'
 
     vacuum_stato_batteria:
       friendly_name: Batteria robot
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
       unit_of_measurement: '%'
       icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
 
     vacuum_tempo_pulizia:
       friendly_name: Tempo ultima pulizia
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time }}'
       icon_template: 'mdi:timer'
 
     vacuum_area_pulita:
       friendly_name: Area Pulita
       unit_of_measurement: 'm ²'
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area }}'
       icon_template: 'mdi:ruler'
 
     vacuum_spazzola_centrale:
       friendly_name: Sostituzione Spazzola
       unit_of_measurement: 'h'
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}/300'
       icon_template: 'mdi:screwdriver'
 
     vacuum_spazzolina:
       friendly_name: Sostituzione Spazzolina
       unit_of_measurement: 'h'
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}/200'
       icon_template: 'mdi:screwdriver'
 
     vacuum_filtro:
       friendly_name: Sostituzione Filtro
       unit_of_measurement: 'h'
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}/150'
       icon_template: 'mdi:screwdriver'
 
     vacuum_sensori:
       friendly_name: Pulizia Sensori
       unit_of_measurement: 'h'
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}/30'
       icon_template: 'mdi:screwdriver'
 
     vacuum_non_disturbare:
       friendly_name: Non disturbare
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb }}'
       icon_template: >
         {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb  %}
@@ -453,63 +505,45 @@ sensor:
 
     vacuum_inizio_non_disturbare:
       friendly_name: Inizio non disturbare
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: 'On DND: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb_start }}'
       icon_template: 'mdi:screwdriver'
 
     vacuum_fine_non_disturbare:
       friendly_name: Fine non disturbare
-      entity_id:
-        - vacuum.xiaomi_vacuum_cleaner
       value_template: 'Off DND: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb_start }}'
       icon_template: 'mdi:screwdriver'
 
-    vacuum_controllo_giornaliero_serbatio_lunedi:
+    vacuum_controllo_giornaliero_serbatoio_lunedi:
       friendly_name: Contorllo giornaliero serbatoio lunedi
-      entity_id:
-        - input_datetime.orario_pulizia_lunedi
       value_template: '{{ (states.input_datetime.orario_pulizia_lunedi.attributes.timestamp - (3600) ) }}'
 
-    vacuum_controllo_giornaliero_serbatio_martedi:
+    vacuum_controllo_giornaliero_serbatoio_martedi:
       friendly_name: Contorllo giornaliero serbatoio martedi
-      entity_id:
-        - input_datetime.orario_pulizia_martedi
       value_template: '{{ (states.input_datetime.orario_pulizia_martedi.attributes.timestamp - (3600) ) }}'
 
-    vacuum_controllo_giornaliero_serbatio_mercoledi:
+    vacuum_controllo_giornaliero_serbatoio_mercoledi:
       friendly_name: Contorllo giornaliero serbatoio mercoledi
-      entity_id:
-        - input_datetime.orario_pulizia_mercoledi
       value_template: '{{ (states.input_datetime.orario_pulizia_mercoledi.attributes.timestamp - (3600) ) }}'
 
-    vacuum_controllo_giornaliero_serbatio_giovedi:
+    vacuum_controllo_giornaliero_serbatoio_giovedi:
       friendly_name: Contorllo giornaliero serbatoio giovedi
-      entity_id:
-        - input_datetime.orario_pulizia_giovedi
       value_template: '{{ (states.input_datetime.orario_pulizia_giovedi.attributes.timestamp - (3600) ) }}'
 
-    vacuum_controllo_giornaliero_serbatio_venerdi:
+    vacuum_controllo_giornaliero_serbatoio_venerdi:
       friendly_name: Contorllo giornaliero serbatoio venerdi
-      entity_id:
-        - input_datetime.orario_pulizia_venerdi
       value_template: '{{ (states.input_datetime.orario_pulizia_venerdi.attributes.timestamp - (3600) ) }}'
 
-    vacuum_controllo_giornaliero_serbatio_sabato:
+    vacuum_controllo_giornaliero_serbatoio_sabato:
       friendly_name: Contorllo giornaliero serbatoio sabato
-      entity_id:
-        - input_datetime.orario_pulizia_sabato
       value_template: '{{ (states.input_datetime.orario_pulizia_sabato.attributes.timestamp - (3600) ) }}'
 
-    vacuum_controllo_giornaliero_serbatio_domenica:
+    vacuum_controllo_giornaliero_serbatoio_domenica:
       friendly_name: Contorllo giornaliero serbatoio domenica
-      entity_id:
-        - input_datetime.orario_pulizia_domenica
       value_template: '{{ (states.input_datetime.orario_pulizia_domenica.attributes.timestamp - (3600) ) }}'
 
-  ################################################
-  ## Script
-  ################################################
+################################################################################
+##                  Script
+###################################################
 script:
   robot_avvia_pulizie:
     alias: "Avvia pulizie"
@@ -527,55 +561,87 @@ script:
         entity_id: vacuum.xiaomi_vacuum_cleaner
 
   vacuum_start:
-       sequence:
-         - service: vacuum.start
-           entity_id: vacuum.xiaomi_vacuum_cleaner
+    sequence:
+      - service: vacuum.start
+        entity_id: vacuum.xiaomi_vacuum_cleaner
 
   vacuum_stop:
-       sequence:
-         - service: vacuum.stop
-           entity_id: vacuum.xiaomi_vacuum_cleaner
-         - delay: '00:00:01'
-         - service: vacuum.return_to_base
-           entity_id: vacuum.xiaomi_vacuum_cleaner
+    sequence:
+      - service: vacuum.stop
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+      - delay: '00:00:01'
+      - service: vacuum.return_to_base
+        entity_id: vacuum.xiaomi_vacuum_cleaner
 
   vacuum_alexa:
-       sequence:
-         - service: input_boolean.turn_on
-           data:
-             entity_id: input_boolean.pulizie_alexa
+    sequence:
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.pulizie_alexa
 
   avviso_serbatoio_alexa:
-       sequence:
-         - service: notify.alexa_media
-           data_template:
-             target:
-               - "media_player.{{ states('sensor.last_alexa') }}"
-             data:
-               type: tts
-               method: speak
-             message: "Vorrei, ma ti avviso che il serbatoio di dobby è pieno. Se vuoi che pulisca comunque, dimmi: Alexa, pulisci lo stesso"
+    sequence:
+      - service: notify.alexa_media
+        data_template:
+          target:
+            - "media_player.{{ states('sensor.last_alexa') }}"
+          data:
+            type: tts
+            method: speak
+          message: "Vorrei, ma ti avviso che il serbatoio di dobby è pieno. Se vuoi che pulisca comunque, dimmi: Alexa, pulisci lo stesso"
 
   pulizia_bagno_gatti:
-       sequence:
-         - service: homeassistant.turn_off
-           entity_id: automation.notifica_fine_pulizie
-         - service: input_boolean.turn_off
-           data:
-             entity_id: input_boolean.annuncio_inizio_pulizie
-         - service: script.robot_avvia_pulizie
-         - delay: '00:02:40'
-         - service: script.robot_torna_a_casa
-         - delay: '00:05:00'
-         - service: input_boolean.turn_on
-           data:
-             entity_id: input_boolean.annuncio_inizio_pulizie
-         - service: homeassistant.turn_on
-           entity_id: automation.notifica_fine_pulizie
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id: automation.notifica_fine_pulizie
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.annuncio_inizio_pulizie
+      - service: script.robot_avvia_pulizie
+      - delay: '00:02:40'
+      - service: script.robot_torna_a_casa
+      - delay: '00:05:00'
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.annuncio_inizio_pulizie
+      - service: homeassistant.turn_on
+        entity_id: automation.notifica_fine_pulizie
 
-  ################################################
-  ## Alert
-  ################################################
+  alexa_actions_controllo_serbatoio:
+    sequence:
+      - service: script.activate_alexa_actionable_notification
+        data_template:
+          text: 'A quanto pare, il serbatoio di dobbi è pieno. Vuoi che pulisca comunque?'
+          event_id: 'actionable_notification_serbatoio'
+          alexa_device: "media_player.{{ states('sensor.last_alexa') }}"
+
+  alexa_actions_richiesta_pulizie:
+    sequence:
+      - service: script.activate_alexa_actionable_notification
+        data_template:
+          text: 'Scusate, si è fatta ora di pulire. Posso farlo?'
+          event_id: 'actionable_notification_richiesta_pulizie'
+          alexa_device: "media_player.soggiorno"
+
+  pulizia_stanze:
+    sequence:
+      - service: xiaomi_miio.vacuum_clean_segment
+        data_template:
+          entity_id: vacuum.xiaomi_vacuum_cleaner
+          segments: '{{states.sensor.pulizia_multi_stanze.state}}'
+
+  pulizia_stanze2:
+    sequence:
+      - service: vacuum.send_command
+        data_template:
+          params: "{{ states('sensor.pulizia_multi_stanze') }}"
+          command: app_segment_clean
+          entity_id: vacuum.xiaomi_vacuum_cleaner
+
+
+################################################################################
+##                  Alert
+###################################################
 alert:
   richiesta_pulizia:
     name: richiesta pulizia
@@ -586,12 +652,14 @@ alert:
     notifiers:
       - notifica_richiesta_pulizie
 
-  ################################################
-  ## Automations
-  ################################################
+################################################################################
+##                  Automations
+###################################################
 automation:
 
-################################################ Ritorno automatico base #######
+###################################################
+##                  Ritrono alla base
+###################################################
   - alias: Ritorno automatico base se in pausa
     initial_state: true
     trigger:
@@ -612,7 +680,9 @@ automation:
     action:
       - service: script.robot_torna_a_casa
 
-################################################ Pulizie Gatti #################
+###################################################
+##                  Pulizie Gatti
+###################################################
   - alias: Pulizie automatiche gatti
     initial_state: true
     trigger:
@@ -646,7 +716,9 @@ automation:
       - service: homeassistant.turn_on
         entity_id: automation.notifica_fine_pulizie
 
-################################################ Priorita a Pulizie automatiche
+###################################################
+##                  Priorita a Pulizie automatiche
+###################################################
   - alias: Priorità pulizia automatica Lunedi
     initial_state: true
     trigger:
@@ -857,7 +929,9 @@ automation:
       - service: homeassistant.turn_off
         entity_id: automation.pulizie_automatiche_gatti
 
-################################################ Pulizie automatiche ###########
+###################################################
+##                  Pulizie automatiche
+###################################################
   - alias: Pulizie automatiche lunedi
     initial_state: true
     trigger:
@@ -1040,7 +1114,9 @@ automation:
       - service: homeassistant.turn_on
         entity_id: input_boolean.annuncio_pulizie
 
-################################################ Pulizie con ALEXA #############
+###################################################
+##                  Pulizie con ALEXA
+###################################################
   - alias: Pulizie Alexa
     trigger:
       - platform: state
@@ -1048,15 +1124,43 @@ automation:
         to: 'on'
     action:
       - service_template: >
-          {% if states.input_boolean.vacuum_svuota_serbatoio.state == "on" %} script.avviso_serbatoio_alexa
-          {% elif states.input_boolean.vacuum_svuota_serbatoio.state == "off" %} script.vacuum_start
+          {% if states.input_boolean.vacuum_svuota_serbatoio.state == "on" %}
+            script.alexa_actions_controllo_serbatoio
+          {% elif states.input_boolean.vacuum_svuota_serbatoio.state == "off" %}
+            script.vacuum_start
           {% endif %}
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.pulizie_alexa
 
-################################################ Controllo Serbatio ############
-  - alias: Controllo Serbatio lunedi
+###################################################
+##                  Actionable Notificaiton ALEXA
+###################################################
+  - alias: avvia pulizie a serbatoio pieno actionable notificaiton
+    trigger:
+      platform: event
+      event_type: alexa_actionable_notification
+      event_data:
+        event_id: actionable_notification_serbatoio
+        event_response: ResponseYes
+    action:
+      - service: script.turn_on
+        entity_id: script.vacuum_start
+
+  - alias: richiesta pulizie actionable notificaiton
+    trigger:
+      platform: event
+      event_type: alexa_actionable_notification
+      event_data:
+        event_id: actionable_notification_richiesta_pulizie
+        event_response: ResponseYes
+    action:
+      - service: script.turn_on
+        entity_id: script.vacuum_start
+###################################################
+##                  Controllo serbatoio
+###################################################
+  - alias: Controllo serbatoio lunedi
     initial_state: true
     trigger:
       - platform: template
@@ -1083,7 +1187,7 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-  - alias: Controllo Serbatio martedi
+  - alias: Controllo serbatoio martedi
     initial_state: true
     trigger:
       - platform: template
@@ -1110,7 +1214,7 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-  - alias: Controllo Serbatio mercoledi
+  - alias: Controllo serbatoio mercoledi
     initial_state: true
     trigger:
       - platform: template
@@ -1137,7 +1241,7 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-  - alias: Controllo Serbatio giovedi
+  - alias: Controllo serbatoio giovedi
     initial_state: true
     trigger:
       - platform: template
@@ -1164,7 +1268,7 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-  - alias: Controllo Serbatio venerdi
+  - alias: Controllo serbatoio venerdi
     initial_state: true
     trigger:
       - platform: template
@@ -1191,7 +1295,7 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-  - alias: Controllo Serbatio sabato
+  - alias: Controllo serbatoio sabato
     initial_state: true
     trigger:
       - platform: template
@@ -1218,7 +1322,7 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-  - alias: Controllo Serbatio domenica
+  - alias: Controllo serbatoio domenica
     initial_state: true
     trigger:
       - platform: template
@@ -1245,7 +1349,9 @@ automation:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
 
-################################################ Svuota serbatoio con sensore ##
+###################################################
+##                  Svuota serbatoio con sensore
+###################################################
   - alias: Svuota serbatoio con sensore
     initial_state: true
     trigger:
@@ -1259,15 +1365,15 @@ automation:
         data:
           entity_id: input_boolean.vacuum_svuota_serbatoio
 
+###################################################
+##                  NOTIFICHE
+###################################################
 
-
-##################################################### NOTIFICHE ###############
-
-  - alias: Avviso serbatio pieno prima di pulizia lunedi
+  - alias: Avviso serbatoio pieno prima di pulizia lunedi
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_lunedi.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_lunedi.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
         - condition: time
           weekday:
@@ -1282,16 +1388,16 @@ automation:
           entity_id: input_boolean.pulizia_giornaliera_robot
           state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
 
-  - alias: Avviso serbatio pieno prima di pulizia martedi
+  - alias: Avviso serbatoio pieno prima di pulizia martedi
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_martedi.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_martedi.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       - condition: time
         weekday:
@@ -1306,16 +1412,16 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
 
-  - alias: Avviso serbatio pieno prima di pulizia mercoledi
+  - alias: Avviso serbatoio pieno prima di pulizia mercoledi
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_mercoledi.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_mercoledi.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       - condition: time
         weekday:
@@ -1330,16 +1436,16 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
 
-  - alias: Avviso serbatio pieno prima di pulizia giovedi
+  - alias: Avviso serbatoio pieno prima di pulizia giovedi
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_giovedi.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_giovedi.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       - condition: time
         weekday:
@@ -1354,16 +1460,16 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
 
-  - alias: Avviso serbatio pieno prima di pulizia venerdi
+  - alias: Avviso serbatoio pieno prima di pulizia venerdi
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_venerdi.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_venerdi.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       - condition: time
         weekday:
@@ -1378,16 +1484,16 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
 
-  - alias: Avviso serbatio pieno prima di pulizia sabato
+  - alias: Avviso serbatoio pieno prima di pulizia sabato
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_sabato.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_sabato.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       - condition: time
         weekday:
@@ -1402,16 +1508,16 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
 
-  - alias: Avviso serbatio pieno prima di pulizia domenica
+  - alias: Avviso serbatoio pieno prima di pulizia domenica
     initial_state: true
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatio_domenica.state | int | timestamp_custom('%H:%M', False)) }}"
+        value_template: "{{ states('sensor.time') == (states.sensor.vacuum_controllo_giornaliero_serbatoio_domenica.state | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       - condition: time
         weekday:
@@ -1426,7 +1532,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1446,7 +1552,7 @@ automation:
         entity_id: input_boolean.annuncio_inizio_pulizie
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Pulizia casa avviata
@@ -1471,18 +1577,22 @@ automation:
         entity_id: input_boolean.vacuum_pulizie_avviate
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Pulizia casa terminata, ricorda di svuotare il serbatoio
-      - service: homeassistant.turn_on
-        entity_id: input_boolean.vacuum_svuota_serbatoio
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.vacuum_svuota_serbatoio
+
       - service: homeassistant.turn_on
         entity_id: automation.pulizie_automatiche_gatti
       - service: homeassistant.turn_off
-        entity_id: input_boolean.vacuum_pulizie_avviate
+        data:
+          entity_id: input_boolean.vacuum_pulizie_avviate
       - service: input_boolean.turn_on
-        entity_id: input_boolean.pulizia_eseguita
+        data:
+          entity_id: input_boolean.pulizia_eseguita
 
   - alias: Vacuum Pulizie Avviate
     initial_state: true
@@ -1495,7 +1605,11 @@ automation:
         minutes: 5
     action:
       - service: homeassistant.turn_on
-        entity_id: input_boolean.vacuum_pulizie_avviate
+        data:
+          entity_id: input_boolean.vacuum_pulizie_avviate
+
+      - service: homeassistant.turn_off
+        entity_id: automation.pulizie_automatiche_gatti
 
   - alias: Notifica base scollegata
     initial_state: true
@@ -1506,7 +1620,7 @@ automation:
       for:
         minutes: 10
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.famiglia
         data:
           title: '*Dobby*'
           message: Sembra che la base non sia più collegata alla corrente.
@@ -1598,7 +1712,26 @@ automation:
           title: '*Dobby - Sensori Sporchi*'
           message: "Livello di sporco sensori: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}/30. Eseguire una pulizia!"
 
-############################################## ROCHIESTA PULIZIE ###############
+  - id: avviso_robot_in_errore_cnv
+    alias: Avviso Robot in errore
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        to: "Errore"
+        for: "00:05:00"
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.in_casa
+          data:
+            type: announce
+            method: speak
+          message: "Attenzione. Dobby si è fermato e mi risulta in errore. Qualcuno può controllare? Grazie."
+###################################################
+##                  RICHIESTA PULIZIE
+###################################################
   - alias: Richiesta 1 pulizie lunedi
     initial_state: true
     trigger:
@@ -2043,6 +2176,10 @@ automation:
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.notifica_richiesta_pulizia
+
+      - service: script.turn_on
+        entity_id: script.alexa_actions_richiesta_pulizie
+
       - service: notify.mobile_app_iphone
         data:
           title: "Posso Pulire? "
@@ -2051,7 +2188,6 @@ automation:
                push:
                  category: "richiesta_pulizie"
                  thread-id: "pulizie"
-
 
   - alias: iOS Action pulisci - Gaia è sveglia
     initial_state: true
@@ -2077,7 +2213,7 @@ automation:
       event_data:
         actionName: NO
     action:
-      - service: notify.ios_XXXX
+      - service: notify.ios_simona
         data:
           message: "Provo dopo"
 
