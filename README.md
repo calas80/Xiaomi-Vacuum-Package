@@ -1,7 +1,7 @@
 # Xiaomi Vacuum Packeges
 Attenzione: nella repository mancava l'immagine del serbatoio pieno. L'ho appena aggiunta: www\vacuum_pieno1.png
 
-<img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Atemprima.PNG" alt="Anteprima">
+<img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Panoramica.png" alt="Anteprima">
 
 
 # Prerequisiti
