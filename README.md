@@ -1,5 +1,12 @@
 # Xiaomi Vacuum Packeges
-Attenzione: nella repository mancava l'immagine del serbatoio pieno. L'ho appena aggiunta: www\vacuum_pieno1.png
+
+Aggiornamento 28 settembre 2020 Versione 4.5
+
+Novità:
+  - Aggiunta pulizia multistanza
+  - vertical-stack-in-card  non è più necessario
+  - Aggiunto senosre Last alexa
+
 
 <img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Panoramica.png" alt="Anteprima">
 
@@ -37,5 +44,5 @@ Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Puliz
 - Quando parte la pulizia automatica, si viene avvisati tramite notifica e tramite annuncio con alexa.
 
 # Impostazioni
-Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercarle nel testo per trovare cosa dovete sostituire.
+Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercar X nel testo per trovare cosa dovete sostituire.
 In linea di massima dovrete correggere i settaggi del vostro Vacuum e i notify.XXXX.
