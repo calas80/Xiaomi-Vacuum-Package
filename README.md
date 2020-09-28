@@ -47,3 +47,4 @@ Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Puliz
 # Impostazioni
 Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercar X nel testo per trovare cosa dovete sostituire.
 In linea di massima dovrete correggere i settaggi del vostro Vacuum, i notify.XXXX ed infince correggere il nome del sensoere di vibraizone o limniarre quella parte nel caso non ne abbiare uno.
+Per quanto rigurada NodeRed, importate il flow, e impostate i vostri dati per l'MQTT. Un Ringraziamento a Massimiliano Albani per l'aiuto fondamentale nella conversione della stringa!
