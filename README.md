@@ -6,6 +6,7 @@ Novità:
   - Aggiunta pulizia multistanza
   - vertical-stack-in-card  non è più necessario
   - Aggiunto senosre Last alexa
+  - Per le multistanze dovete imporare un flow di nodered che trovate tra i file
 
 
 <img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Panoramica.png" alt="Anteprima">
