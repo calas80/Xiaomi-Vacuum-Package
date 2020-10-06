@@ -4,7 +4,6 @@ Aggiornamento 28 settembre 2020 Versione 4.5
 
 Novità:
   - Aggiunta pulizia multistanza
-  - vertical-stack-in-card  non è più necessario
   - Aggiunto senosre Last alexa
   - Per le multistanze dovete imporare un flow di nodered che trovate tra i file
 
@@ -18,6 +17,7 @@ Custom Component necessari:
   - fold-entity-row
   - multiple-entity-row
   - button-card
+  - vertical-stack-in-card
 
 # Spiegazioni
 Questo packages è molto articolato. Comprende funzioni che probabilmente a molti di voi non serviranno e quindi potrete eliminare.
