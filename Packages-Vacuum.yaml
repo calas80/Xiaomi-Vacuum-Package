@@ -377,8 +377,6 @@ sensor:
           none
         {% endif %}
 
-  platform: template
-  sensors:
     vacuum_stato:
       friendly_name: Stato robot
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
