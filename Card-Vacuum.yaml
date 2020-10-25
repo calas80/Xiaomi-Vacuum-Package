@@ -1,4 +1,4 @@
-- type: vertical-stack
+- type: custom:vertical-stack-in-card
   cards:
     - type: custom:vertical-stack-in-card
       cards:
@@ -251,20 +251,23 @@
     ################################################################################
     #################################################### TASTI TUNZIONE ############
     ################################################################################
-
-    - type: "custom:button-card"
-      color_type: blank-card
-      styles:
-        card:
-          - height: 2px
-
-    - type: horizontal-stack
-      panel: true
+- type: entities
+  show_header_toggle: false
+  entities:
+    - type: 'custom:hui-horizontal-stack-card' # Tasti Funzione
       cards:
-        - type: custom:button-card # START
+        - type: 'custom:button-card' #Start
           icon: mdi:play
+          show_icon: true
           show_name: false
-          color_type: icon
+          style: '-5px -5px 8px rgba(255, 255, 255, .8), 5px 5px 8px rgba(0, 0, 0, .03);'
+          styles:
+            card:
+              - width: 60px
+              - height: 40px
+              - margin: 0px 10px 10px 0px
+              - border-radius: 100px
+              - box-shadow: '-1px -1px 5px rgba(107, 139, 194, .4), 5px 5px 8px rgba(0, 0, 0, .03)'
           tap_action:
             action: call-service
             service: vacuum.start
@@ -272,135 +275,99 @@
               entity_id: vacuum.xiaomi_vacuum_cleaner
           entity: vacuum.xiaomi_vacuum_cleaner
 
-        - type: "custom:button-card" # STOP
+        - type: 'custom:button-card' #STOP
           icon: mdi:stop
+          show_icon: true
           show_name: false
+          style: '-5px -5px 8px rgba(255, 255, 255, .8), 5px 5px 8px rgba(0, 0, 0, .03);'
+          styles:
+            card:
+              - width: 60px
+              - height: 40px
+              - margin: 0px 10px 10px 0px
+              - border-radius: 100px
+              - box-shadow: '-1px -1px 5px rgba(107, 139, 194, .4), 5px 5px 8px rgba(0, 0, 0, .03)'
           tap_action:
             action: call-service
             service: vacuum.stop
             service_data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
           entity: vacuum.xiaomi_vacuum_cleaner
-          style:
-            .: |
-              ha-card {
-                --paper-item-icon-color: white
-              }
 
-        - type: "custom:button-card" # HOME RETURN
+        - type: 'custom:button-card' #Home Return
           icon: mdi:home
+          show_icon: true
           show_name: false
+          style: '-5px -5px 8px rgba(255, 255, 255, .8), 5px 5px 8px rgba(0, 0, 0, .03);'
+          styles:
+            card:
+              - width: 60px
+              - height: 40px
+              - margin: 0px 10px 10px 0px
+              - border-radius: 100px
+              - box-shadow: '-1px -1px 5px rgba(107, 139, 194, .4), 5px 5px 8px rgba(0, 0, 0, .03)'
           tap_action:
             action: call-service
             service: vacuum.return_to_base
             service_data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
           entity: vacuum.xiaomi_vacuum_cleaner
-          style:
-            .: |
-              ha-card {
-                --paper-item-icon-color: white
-              }
 
-        - type: "custom:button-card" # SPOT
+        - type: 'custom:button-card' #SPOT
           icon: mdi:crosshairs
+          show_icon: true
           show_name: false
+          style: '-5px -5px 8px rgba(255, 255, 255, .8), 5px 5px 8px rgba(0, 0, 0, .03);'
+          styles:
+            card:
+              - width: 60px
+              - height: 40px
+              - margin: 0px 10px 10px 0px
+              - border-radius: 100px
+              - box-shadow: '-1px -1px 5px rgba(107, 139, 194, .4), 5px 5px 8px rgba(0, 0, 0, .03)'
           tap_action:
             action: call-service
             service: vacuum.clean_spot
             service_data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
           entity: vacuum.xiaomi_vacuum_cleaner
-          style:
-            .: |
-              ha-card {
-                --paper-item-icon-color: white
-              }
 
-        - type: "custom:button-card" # LOCATE
+        - type: 'custom:button-card' #Locate
           icon: mdi:bell-ring
+          show_icon: true
           show_name: false
+          style: '-5px -5px 8px rgba(255, 255, 255, .8), 5px 5px 8px rgba(0, 0, 0, .03);'
+          styles:
+            card:
+              - width: 60px
+              - height: 40px
+              - margin: 0px 10px 10px 0px
+              - border-radius: 100px
+              - box-shadow: '-1px -1px 5px rgba(107, 139, 194, .4), 5px 5px 8px rgba(0, 0, 0, .03)'
           tap_action:
             action: call-service
             service: vacuum.locate
             service_data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
           entity: vacuum.xiaomi_vacuum_cleaner
-          style:
-            .: |
-              ha-card {
-                --paper-item-icon-color: white
-              }
 
-        - type: "custom:button-card" # Bagno Gatti
+        - type: 'custom:button-card' #Bagno Gatti
           icon: mdi:shower
+          show_icon: true
           show_name: false
-          color_type: icon
-          color: "#ffffff"
+          style: '-5px -5px 8px rgba(255, 255, 255, .8), 5px 5px 8px rgba(0, 0, 0, .03);'
+          styles:
+            card:
+              - width: 60px
+              - height: 40px
+              - margin: 0px 10px 10px 0px
+              - border-radius: 100px
+              - box-shadow: '-1px -1px 5px rgba(107, 139, 194, .4), 5px 5px 8px rgba(0, 0, 0, .03)'
           tap_action:
             action: call-service
             service: script.pulizia_bagno_gatti
 
-
-
-
-    - type: "custom:button-card"
-      color_type: blank-card
-      styles:
-        card:
-          - height: 2px
-
-    - type: vertical-stack # PULIZIA STANZE
-      cards:
-        - type: "custom:button-card"
-          name: Pulizia Stanze
-        - type: horizontal-stack
-          cards:
-            - type: button
-              name: Cucina
-              icon: mdi:silverware-fork-knife
-              entity: input_boolean.stanza_1
-            - type: button
-              name: Soggiorno
-              entity: input_boolean.stanza_2
-              icon: mdi:sofa
-            - type: button
-              name: Camera da letto
-              entity: input_boolean.stanza_3
-              icon: mdi:bed
-        - type: horizontal-stack
-          cards:
-            - type: button
-              name: Cameretta
-              entity: input_boolean.stanza_4
-              icon: mdi:bed-king
-            - type: button
-              name: bagno
-              icon: mdi:paper-roll
-              entity: input_boolean.stanza_5
-            - type: button
-              name: Bagno gatti
-              entity: input_boolean.stanza_6
-              icon: mdi:paw
-
-        - type: vertical-stack
-          cards:
-            - type: "custom:button-card"
-              name: Avvia
-              tap_action:
-                action: call-service
-                service: mqtt.publish
-                service_data:
-                  payload: clean_segment
-                  topic: vacuum
-              lock:
-                enabled: >-
-                  [[[ return states["sensor.stanze"].state === "False";
-                  ]]]
-                exemptions: [] # STOP
-
 - type: vertical-stack
-  panel: false
   cards:
     - type: picture-entity
       entity: input_boolean.vacuum_svuota_serbatoio
@@ -414,6 +381,235 @@
       state_image:
         "on": /local/vacuum_pieno1.png
         "off": /local/vacuum_pronto.png
+
+    - type: 'custom:hui-horizontal-stack-card' # Pulizia Multicamera
+      cards:
+        - type: "custom:button-card" # CAMERA DA LETTO
+          name: Camera da letto
+          icon: mdi:bed
+          entity: input_boolean.stanza_1
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+
+        - type: "custom:button-card" # SOGGIORNO
+          name: Soggiorno
+          entity: input_boolean.stanza_7
+          icon: mdi:sofa
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+
+        - type: "custom:button-card" # GATTI
+          name: Bagno gatti
+          icon: mdi:paw
+          entity: input_boolean.stanza_3
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+    - type: 'custom:hui-horizontal-stack-card'
+      cards:
+        - type: "custom:button-card" # BAGNO
+          name: bagno
+          icon: mdi:paper-roll
+          entity: input_boolean.stanza_4
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+
+        - type: "custom:button-card" # CAMERETTA
+          name: Cameretta
+          icon: mdi:bed-king
+          entity: input_boolean.stanza_6
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+
+        - type: "custom:button-card" # CORRIDOIO
+          name: Corridoio
+          icon: mdi:exit-run
+          entity: input_boolean.stanza_5
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+
+        - type: "custom:button-card" # CUCINA
+          name: Cucina
+          icon: mdi:silverware-fork-knife
+          entity: input_boolean.stanza_8
+          size: 30%
+          styles:
+            card:
+              - margin: 5px
+              - border-radius: 15px
+              - box-shadow: '-3px -3px 3px rgba(107, 139, 194, .7), 5px 5px 8px rgba(0, 0, 0, .08)'
+#                  - background-color: var(--primary-background-color)
+            icon:
+              - color: var(--primary-text-color)
+          state:
+            - value: 'on'
+              styles:
+                card:
+                  - box-shadow: 'inset -4px -4px 5px rgba(78, 114, 177, .8), inset 3px 3px 5px rgba(0, 0, 0, .3)'
+                icon:
+                  - color: var(--paper-item-icon-active-color)
+          tap_action:
+            action: toggle
+            haptic: light
+          hold_action:
+            action: more-info
+            haptic: medium
+
+    - type: 'custom:hui-horizontal-stack-card'
+      cards:
+        - type: "custom:button-card"
+          name: Avvia
+          tap_action:
+            action: call-service
+            service: mqtt.publish
+            service_data:
+              payload: clean_segment
+              topic: vacuum
+          lock:
+            enabled: >-
+              [[[ return states["sensor.stanze"].state === "False";
+              ]]]
+            exemptions: [] # STOP
+  style: |
+    ha-card {
+      border-radius: 10px;
+      margin: 10px auto;
+      box-shadow: '-5px -5px 8px rgba(255, 255, 255, .5), 5px 5px 8px rgba(0, 0, 0, .03);'
+#          background-color: var(--primary-background-color);
+
+
+
+
+#- type: "custom:button-card"
+#  color_type: blank-card
+#  styles:
+#    card:
+#      - height: 10px
+
+
+
+
+- type: picture-entity
+  entity: camera.vacuum
+  show_name: false
+  show_state: false
+
+
+
+
 
 ################################################################################
 #################################################### CALENDARIO ################
