@@ -13,11 +13,16 @@ Novità:
 
 # Prerequisiti
 Custom Component necessari:
-  - NodeRed (solo se volete la pulizia multistanza)
-  - fold-entity-row
-  - multiple-entity-row
-  - button-card
+  - fold-entity-row 
+  - multiple-entity-row 
+  - button-card 
   - vertical-stack-in-card
+
+Add-on necessari:
+  - NodeRed (solo se volete la pulizia multistanza)
+  
+Integrazioni HACS necessarie:
+- Xiaomi Cloud Map Extractor (solo se volete la card con la mappa)
 
 # Spiegazioni
 Questo packages è molto articolato. Comprende funzioni che probabilmente a molti di voi non serviranno e quindi potrete eliminare.
