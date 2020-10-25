@@ -6,7 +6,7 @@ homeassistant:
     package.node_anchors:
       customize: &customize
         package: 'Xiaomi Vacuum Package'
-        version: 'v4.0'
+        version: 'v4.5'
         author: 'Calas'
 
       expose: &expose
@@ -128,6 +128,40 @@ vacuum:
     host: XXX.XXX.XXX.XXX
     token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+camera:
+  - platform: xiaomi_cloud_map_extractor
+    host: XXX.XXX.XXX.XXX
+    token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    username: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    password: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    country: "de"
+    name: "Vacuum"
+    scan_interval: 10
+    colors:
+      color_map_outside: [28, 28, 28]
+      color_path: [255, 255, 255]
+    map_transformation:
+      scale: 2
+    scan_interval:
+      seconds: 10
+    auto_update: true
+    sizes:
+      charger_radius: 4
+      vacuum_radius: 6.5
+    attributes:
+      - room_numbers
+      - rooms
+      - map_name
+    draw:
+      - charger
+      - path
+      - goto_path
+      - predicted_path
+      - no_go_zones
+      - no_mopping_zones
+      - vacuum_position
+      - virtual_walls
+      - zones
 
 ################################################################################
 ##                  Counter
@@ -367,16 +401,18 @@ sensor:
     last_alexa:
       friendly_name: 'Last Alexa'
       value_template: >-
-        {% if is_state_attr('media_player.echo_show_cucina','last_called', true) %}
+        {% if is_state_attr('media_player.echo_show_xxxxxxx','last_called', true) %}
           echo_show_cucina
-        {% elif is_state_attr('media_player.soggiorno','last_called', true) %}
+        {% elif is_state_attr('media_player.echo_dot_xxxxxxx','last_called', true) %}
           soggiorno
-        {% elif is_state_attr('media_player.camera_da_letto','last_called', true) %}
+        {% elif is_state_attr('media_player.xxxxxxxxxxx','last_called', true) %}
           camera_da_letto
         {% else %}
           none
         {% endif %}
 
+  platform: template
+  sensors:
     vacuum_stato:
       friendly_name: Stato robot
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
@@ -401,19 +437,19 @@ sensor:
     sensore_serbatorio_vacuum:
       friendly_name: 'Sensore Serbatoio Vacuum'
       value_template: >-
-        {% if states.sensor.coordination_XXXXXXXXXXXXXXX.state == 'unknown' %}
+        {% if states.sensor.coordination_158d0002b615f8.state == 'unknown' %}
             Sconosciuto
-        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[0] | int > 700 %}
+        {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[0] | int > 700 %}
             1
-        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[0] | int < -700 %}
+        {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[0] | int < -700 %}
             2
-        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[1] | int > 700 %}
+        {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[1] | int > 700 %}
             3
-        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[1] | int < -700 %}
+        {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[1] | int < -700 %}
             4
-        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[2] | int > 900 %}
+        {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[2] | int > 900 %}
             5
-        {% elif states.sensor.coordination_XXXXXXXXXXXXXXX.state.split(',')[2] | int < -400 %}
+        {% elif states.sensor.coordination_158d0002b615f8.state.split(',')[2] | int < -400 %}
             6
         {% endif %}
 
@@ -438,6 +474,14 @@ sensor:
           {% set stanza_8 = 24 if do_stanza_8 else '' %}
 
           [{{ [stanza_1, stanza_2, stanza_3, stanza_4, stanza_5, stanza_6, stanza_7, stanza_8] | select("!=", "") | join(",") }}]
+#16 lett
+#17 ripostiglio
+#18 GATTI
+#18 BAGNO
+#20 Cameretta
+#21 Corridoio
+#22 salotto+
+#24 cucina
     stanze:
       friendly_name: 'seleziona stanze'
       value_template: >-
@@ -619,7 +663,7 @@ script:
         data_template:
           text: 'Scusate, si è fatta ora di pulire. Posso farlo?'
           event_id: 'actionable_notification_richiesta_pulizie'
-          alexa_device: "media_player.soggiorno"
+          alexa_device: "media_player.XXXXXXXX"
 
   pulizia_stanze:
     sequence:
@@ -1180,7 +1224,7 @@ automation:
         entity_id: input_boolean.pulizia_lunedi
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1207,7 +1251,7 @@ automation:
         entity_id: input_boolean.pulizia_martedi
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1234,7 +1278,7 @@ automation:
         entity_id: input_boolean.pulizia_mercoledi
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1261,7 +1305,7 @@ automation:
         entity_id: input_boolean.pulizia_giovedi
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1288,7 +1332,7 @@ automation:
         entity_id: input_boolean.pulizia_venerdi
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1315,7 +1359,7 @@ automation:
         entity_id: input_boolean.pulizia_sabato
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1342,7 +1386,7 @@ automation:
         entity_id: input_boolean.pulizia_domenica
         state: 'on'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Oggi non posso fare le pulizie, il serbatoio è pieno!
@@ -1386,7 +1430,7 @@ automation:
           entity_id: input_boolean.pulizia_giornaliera_robot
           state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1410,7 +1454,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1434,7 +1478,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1458,7 +1502,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1482,7 +1526,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1506,7 +1550,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1530,7 +1574,7 @@ automation:
         entity_id: input_boolean.pulizia_giornaliera_robot
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Tra un ora dovrò pulire, ti ricordo che devi svuotare il serbatorio, altrimenti non potrò farlo.
@@ -1550,14 +1594,14 @@ automation:
         entity_id: input_boolean.annuncio_inizio_pulizie
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Pulizia casa avviata
       - service: notify.alexa_media
         data:
           target:
-            - media_player.in_casa
+            - media_player.XXXXXXX
           data:
             type: announce
             method: speak
@@ -1575,7 +1619,7 @@ automation:
         entity_id: input_boolean.vacuum_pulizie_avviate
         state: 'on'
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Pulizia casa terminata, ricorda di svuotare il serbatoio
@@ -1618,14 +1662,14 @@ automation:
       for:
         minutes: 10
     action:
-      - service: notify.famiglia
+      - service: notify.XXXXXX
         data:
           title: '*Dobby*'
           message: Sembra che la base non sia più collegata alla corrente.
       - service: notify.alexa_media
         data:
           target:
-            - media_player.in_casa
+            - media_player.XXXXXXX
           data:
             type: announce
             method: speak
@@ -1638,7 +1682,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left | int < 20 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - Ricambi*'
           message: "Livello di usra della spazzola principale: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}/300."
@@ -1649,7 +1693,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left | int < 3 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - Spazzola da sostituire*'
           message: "Livello di usra della spazzola principale: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}/300. Prevedi la sostituzione!"
@@ -1660,7 +1704,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left | int < 60 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - Ricambi*'
           message: "Livello di usra della spazzolina: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}/200."
@@ -1671,7 +1715,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left | int < 10 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - Spazzola da sostituire*'
           message: "Livello di usra della spazzolina: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}/200. Prevedi la sostituzione"
@@ -1682,7 +1726,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left | int < 40 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - Ricambi*'
           message: "Livello di usra del filtro: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}/150."
@@ -1693,7 +1737,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left | int < 7 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - filtro da sostituire*'
           message: "Livello di usra del filtro: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}/150. Prevedi la sostituzione!"
@@ -1705,7 +1749,7 @@ automation:
       platform: template
       value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left | int < 2 }}'
     action:
-      - service: notify.XXXXXXXX
+      - service: notify.XXXXXX
         data:
           title: '*Dobby - Sensori Sporchi*'
           message: "Livello di sporco sensori: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}/30. Eseguire una pulizia!"
@@ -1716,17 +1760,17 @@ automation:
     trigger:
       - platform: state
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        to: "Errore"
+        to: "error"
         for: "00:05:00"
     action:
       - service: notify.alexa_media
         data:
           target:
-            - media_player.in_casa
+            - media_player.XXXXXXX
           data:
             type: announce
             method: speak
-          message: "Attenzione. Dobby si è fermato e mi risulta in errore. Qualcuno può controllare? Grazie."
+          message: "Attenzione. Probabilmente Dobby ha un problema. Qualcuno può controllare? Grazie."
 ###################################################
 ##                  RICHIESTA PULIZIE
 ###################################################
