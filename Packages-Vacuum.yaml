@@ -397,6 +397,15 @@ input_boolean:
 ###################################################
 sensor:
   platform: template
+    sensors:
+      last_alexa:
+        entity_id:
+          - media_player.echo_1
+          - media_player.echo_2
+        value_template: >
+          {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
+          
+  platform: template
   sensors:
     last_alexa:
       friendly_name: 'Last Alexa'
