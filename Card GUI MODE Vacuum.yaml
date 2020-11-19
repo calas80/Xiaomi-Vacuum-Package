@@ -1,0 +1,441 @@
+#        Bisonga aggiungere due card manuali
+
+#################### CARD MANUALE 1 #########################
+type: 'custom:vertical-stack-in-card'
+cards:
+  - type: 'custom:fold-entity-row'
+    head: input_boolean.richiesta_pulizia
+    items:
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Lunedi
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_lunedi
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_lunedi
+                name: false
+          - entity: input_boolean.richiesta_pulizia_lunedi_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_lunedi_2
+                name: false
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Martedi
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_martedi
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_martedi
+                name: false
+          - entity: input_boolean.richiesta_pulizia_martedi_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_martedi_2
+                name: false
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Mercoledi
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_mercoledi
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_mercoledi
+                name: false
+          - entity: input_boolean.richiesta_pulizia_mercoledi_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_mercoledi_2
+                name: false
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Giovedi
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_giovedi
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_giovedi
+                name: false
+          - entity: input_boolean.richiesta_pulizia_giovedi_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_giovedi_2
+                name: false
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Venerdi
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_venerdi
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_venerdi
+                name: false
+          - entity: input_boolean.richiesta_pulizia_venerdi_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_venerdi_2
+                name: false
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Sabato
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_sabato
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_sabato
+                name: false
+          - entity: input_boolean.richiesta_pulizia_sabato_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_sabato_2
+                name: false
+      - type: 'custom:fold-entity-row'
+        head:
+          type: section
+          label: Domenica
+        open: false
+        entities:
+          - entity: input_boolean.richiesta_pulizia_domenica
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 1
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_domenica
+                name: false
+          - entity: input_boolean.richiesta_pulizia_domenica_2
+            type: 'custom:multiple-entity-row'
+            name: Richiesta 2
+            toggle: true
+            entities:
+              - entity: input_datetime.orario_richiesta_pulizia_domenica_2
+                name: false
+      - type: section
+  - type: 'custom:button-card'
+    color_type: blank-card
+    styles:
+      card:
+        - height: 10px
+  - type: vertical-stack
+    panel: true
+    cards:
+      - type: picture-elements
+        image: /local/vacuum0.png
+        elements:
+          - type: state-label
+            tap_action: more-info
+            entity: vacuum.xiaomi_vacuum_cleaner
+            style:
+              top: 90%
+              right: 38%
+              color: 'rgb(255, 255, 255)'
+              transform: 'translate(0%,-50%)'
+              font-family: Trebuchet MS
+              font-size: 150%
+              font-weight: bold
+              border-color: 'rgb(34, 154, 210)'
+              border-radius: 8px
+              background-color: '#e68a00'
+          - type: state-label
+            entity: sensor.vacuum_spazzolina
+            style:
+              top: 15%
+              left: 13%
+              color: '#11AB7D'
+              font-size: 16px
+          - type: state-label
+            entity: sensor.vacuum_spazzola_centrale
+            style:
+              top: 45%
+              left: 13%
+              color: '#11AB7D'
+              font-size: 16px
+          - type: state-label
+            entity: sensor.vacuum_filtro
+            style:
+              top: 75%
+              left: 13%
+              color: '#11AB7D'
+              font-size: 16px
+          - type: state-label
+            entity: sensor.vacuum_sensori
+            style:
+              top: 21%
+              left: 87%
+              color: '#11AB7D'
+              font-size: 20px
+          - type: state-label
+            entity: sensor.vacuum_stato_batteria
+            style:
+              top: 60%
+              left: 90%
+              color: '#ffffff'
+              font-size: 13px
+          - type: state-icon
+            entity: sensor.vacuum_stato
+            style:
+              top: 58%
+              right: 8%
+              '--iron-icon-fill-color': '#e68a00'
+              '--iron-icon-height': 35px
+              '--iron-icon-width': 35px
+          - type: state-label
+            entity: sensor.vacuum_area_pulita
+            prefix: 'Area:'
+            style:
+              top: 93%
+              left: 77%
+              transform: 'translate(0%,-50%)'
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 100%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_fanspeed
+            prefix: ''
+            style:
+              top: 75%
+              left: 70%
+              transform: 'translate(0%,-50%)'
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 100%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_tempo_pulizia
+            prefix: 'Tempo:'
+            style:
+              top: 93%
+              left: 3%
+              transform: 'translate(0%,-50%)'
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 100%
+              font-weight: bold
+        style: |
+          ha-card {background-color: transparent;}
+
+
+
+#################### CARD MANUALE 2 #########################
+
+type: 'custom:vertical-stack-in-card'
+panel: true
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:button-card'
+        entity: input_boolean.pulizia_giornaliera_robot
+        show_icon: true
+        show_state: false
+        name: Pulizia Giornaliera
+        color: auto
+        size: 20%
+        color_type: icon
+        icon: 'mdi:repeat'
+        styles:
+          card:
+            - font-size: 15px
+      - type: 'custom:button-card'
+        entity: input_boolean.pulizia_automatica_bagno
+        show_icon: true
+        show_state: false
+        name: Pulizia Automatica Bagno
+        color: auto
+        size: 20%
+        color_type: icon
+        styles:
+          card:
+            - font-size: 15px
+  - type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_lunedi
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Lunedi
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_lunedi
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_martedi
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Martedi
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_martedi
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_mercoledi
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Mercoledi
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_mercoledi
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_giovedi
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Giovedi
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_giovedi
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_venerdi
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Venerdi
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_venerdi
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_sabato
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Sabato
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_sabato
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: input_boolean.pulizia_domenica
+            show_icon: true
+            show_state: false
+            layout: icon_name
+            name: Domenica
+            color: auto
+            icon: 'mdi:checkbox-marked'
+            color_type: icon
+            styles:
+              card:
+                - height: 90px
+                - width: 150px
+                - background: none
+          - type: entities
+            entities:
+              - entity: input_datetime.orario_pulizia_domenica
+                name: Orario
+            style: |
+              ha-card {background-color: transparent;}
