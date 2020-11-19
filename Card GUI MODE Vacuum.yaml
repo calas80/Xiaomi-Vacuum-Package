@@ -1,4 +1,4 @@
-#        Bisonga aggiungere due card manuali
+#        Bisonga aggiungere 3 card manuali
 
 #################### CARD MANUALE 1 #########################
 type: 'custom:vertical-stack-in-card'
@@ -252,8 +252,13 @@ cards:
           ha-card {background-color: transparent;}
 
 
-
 #################### CARD MANUALE 2 #########################
+type: picture-entity
+entity: camera.vacuum
+show_name: false
+show_state: false
+
+#################### CARD MANUALE 3 #########################
 
 type: 'custom:vertical-stack-in-card'
 panel: true
