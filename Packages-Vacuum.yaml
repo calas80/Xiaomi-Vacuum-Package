@@ -142,8 +142,6 @@ camera:
       color_path: [255, 255, 255]
     map_transformation:
       scale: 2
-    scan_interval:
-      seconds: 10
     auto_update: true
     sizes:
       charger_radius: 4
