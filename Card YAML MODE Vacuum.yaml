@@ -1,150 +1,126 @@
-type: custom:vertical-stack-in-card
+type: custom:stack-in-card
+mode: vertical
 cards:
-  - type: custom:vertical-stack-in-card
-    cards:
-      - type: custom:fold-entity-row # RICHIESTA PULIZIA
-        head: input_boolean.richiesta_pulizia
-        items:
-          - type: custom:fold-entity-row # Lunedi
-            head:
-              type: section
-              label: Lunedi
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_lunedi
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_lunedi
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_lunedi_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_lunedi_2
-                    name: false
-          - type: custom:fold-entity-row # Martedi
-            head:
-              type: section
-              label: Martedi
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_martedi
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_martedi
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_martedi_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_martedi_2
-                    name: false
-          - type: custom:fold-entity-row # Giovedi
-            head:
-              type: section
-              label: Mercoledi
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_mercoledi
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_mercoledi
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_mercoledi_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_mercoledi_2
-                    name: false
-          - type: custom:fold-entity-row # Mercoledi
-            head:
-              type: section
-              label: Giovedi
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_giovedi
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_giovedi
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_giovedi_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_giovedi_2
-                    name: false
-          - type: custom:fold-entity-row # Venerdi
-            head:
-              type: section
-              label: Venerdi
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_venerdi
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_venerdi
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_venerdi_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_venerdi_2
-                    name: false
-          - type: custom:fold-entity-row # Sabato
-            head:
-              type: section
-              label: Sabato
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_sabato
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_sabato
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_sabato_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_sabato_2
-                    name: false
-          - type: custom:fold-entity-row # Domenica
-            head:
-              type: section
-              label: Domenica
-            open: false
-            entities:
-              - entity: input_boolean.richiesta_pulizia_domenica
-                type: custom:multiple-entity-row
-                name: Richiesta 1
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_domenica
-                    name: false
-              - entity: input_boolean.richiesta_pulizia_domenica_2
-                type: custom:multiple-entity-row
-                name: Richiesta 2
-                toggle: true
-                entities:
-                  - entity: input_datetime.orario_richiesta_pulizia_domenica_2
-                    name: false
+  - type: custom:fold-entity-row # RICHIESTA PULIZIA
+    head: input_boolean.richiesta_pulizia
+    items:
+      - entity: input_boolean.richiesta_pulizia_lunedi
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Lunedi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_lunedi
+            name: false
+      - entity: input_boolean.richiesta_pulizia_lunedi_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Lunedi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_lunedi_2
+            name: false
+
+      - type: divider
+
+      - entity: input_boolean.richiesta_pulizia_martedi
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Martedi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_martedi
+            name: false
+      - entity: input_boolean.richiesta_pulizia_martedi_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Martedi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_martedi_2
+            name: false
+
+      - type: divider
+
+      - entity: input_boolean.richiesta_pulizia_mercoledi
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Mercoledi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_mercoledi
+            name: false
+      - entity: input_boolean.richiesta_pulizia_mercoledi_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Mercoledi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_mercoledi_2
+            name: false
+
+      - type: divider
+
+      - entity: input_boolean.richiesta_pulizia_giovedi
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Giovedi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_giovedi
+            name: false
+      - entity: input_boolean.richiesta_pulizia_giovedi_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Giovedi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_giovedi_2
+            name: false
+
+      - type: divider
+
+      - entity: input_boolean.richiesta_pulizia_venerdi
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Venerdi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_venerdi
+            name: false
+      - entity: input_boolean.richiesta_pulizia_venerdi_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Venerdi
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_venerdi_2
+            name: false
+
+      - type: divider
+
+      - entity: input_boolean.richiesta_pulizia_sabato
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Sabato
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_sabato
+            name: false
+      - entity: input_boolean.richiesta_pulizia_sabato_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Sabato
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_sabato_2
+            name: false
+
+      - type: divider
+
+      - entity: input_boolean.richiesta_pulizia_domenica
+        type: custom:multiple-entity-row
+        name: Richiesta 1 Domenica
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_domenica
+            name: false
+      - entity: input_boolean.richiesta_pulizia_domenica_2
+        type: custom:multiple-entity-row
+        name: Richiesta 2 Domenica
+        toggle: true
+        entities:
+          - entity: input_datetime.orario_richiesta_pulizia_domenica_2
+            name: false
+
 
           - type: section
       - type: "custom:button-card"
