@@ -22,7 +22,7 @@ Custom Component necessari:
   - fold-entity-row 
   - multiple-entity-row 
   - button-card 
-  - vertical-stack-in-card
+  - stack-in-card
 
 Add-on necessari:
   - NodeRed (solo se volete la pulizia multistanza)
