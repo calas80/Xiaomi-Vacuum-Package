@@ -1,17 +1,17 @@
-# Xiaomi Vacuum Packeges
-Aggiornamento 25 ottobte 2020 Versione 4.6
+# Xiaomi Vacuum Packages
+Aggiornamento 25 ottobre 2020 Versione 4.6
 
 Novità:
   - Aggiunta card mappa in tempo reale.
   - Aggiunti tasti 3D
-    Dovrete casomai adottare i colori dei tasti al vostro tema.
+    Dovrete casomai adattare i colori dei tasti al vostro tema.
   
 Aggiornamento 28 settembre 2020 Versione 4.3
 
 Novità:
   - Aggiunta pulizia multistanza.
-  - Aggiunto senosre Last alexa.
-  - Per le multistanze dovete imporare un flow di nodered che trovate tra i file.
+  - Aggiunto sensore Last alexa.
+  - Per le multistanze dovete importare un flow di nodered che trovate tra i file.
 
 
 <img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Panoramica.png" alt="Anteprima">
@@ -43,7 +43,7 @@ Il packages ha dei sensori interattivi per i filtri e i pezzi di ricambio. Mande
 Ci sono tre modi di svuotare il serbatoio:
   - 1 - Cliccare sull'immagine svuota il serbatoio (che appare solo quando il serbatoio è pieno)
   - 2 - Ho previsto una automazione grazie all'utilizzo di un sensore di vibrazione Xiaomi che ho posizionato sul coperchio del robottino; quando il coperchio viene aperto per più di 8 secondi, il serbatoio viene considerato svuotato.
-  - 3 - Programmare una routine di Alexa Grazie allo scritp corrispondete.
+  - 3 - Programmare una routine di Alexa Grazie allo script corrispondente.
 <img src="https://github.com/calas80/Xiaomi-Vacuum-Package/blob/master/Anteprima%202.PNG" alt="Anteprima">
 
 
@@ -52,10 +52,10 @@ Ogni giorno è programmabile e attivabile singolarmente. Il tasto in alto "Puliz
 
 # Funzioni speciali
 - Il robottino torna alla base da solo in caso di errore o perdita della mappa.
-- Un ora prima dell'inizio delle pulizie automatiche, se il serbatoio è ancora pieno, parte un promemoria per ricordare di svuotarlo. Se arrivata l'ora delle pulizie il serbatoio è ancora pieno, le pulizie non avvengo e si viene avvisati.
+- Un'ora prima dell'inizio delle pulizie automatiche, se il serbatoio è ancora pieno, parte un promemoria per ricordare di svuotarlo. Se arrivata l'ora delle pulizie il serbatoio è ancora pieno, le pulizie non avvengo e si viene avvisati.
 - Quando parte la pulizia automatica, si viene avvisati tramite notifica e tramite annuncio con alexa.
 
 # Impostazioni
 Tutto (o quasi) quello che dovete impostare indicato con delle XXX, vi basta cercar X nel testo per trovare cosa dovete sostituire.
-In linea di massima dovrete correggere i settaggi del vostro Vacuum, i notify.XXXX ed infince correggere il nome del sensoere di vibraizone o limniarre quella parte nel caso non ne abbiare uno.
+In linea di massima dovrete correggere i settaggi del vostro Vacuum, i notify.XXXX ed infine correggere il nome del sensoere di vibrazione o eliminare quella parte nel caso non ne abbiate uno.
 Per quanto rigurada NodeRed, importate il flow, e impostate i vostri dati per l'MQTT. Un Ringraziamento a Massimiliano Albani per l'aiuto fondamentale nella conversione della stringa!
